@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'zb/css/Payments.css'%}">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_995597_mk2ggpu1c2k.css">
+    <script type="text/javascript" src="https://at.alicdn.com/t/font_995597_zgkloknmu8.js"></script>
+    <link rel="stylesheet" href="{% static 'zb/css/swiper.css'%}">
+    <script src="{% static 'zb/js/rem.js'%}"></script>
+    <script src="{% static 'zb/js/jQuery.js'%}"></script>
+    <script src="{% static 'zb/js/swiper.js'%}"></script>
+    <title>付款方式</title>
+</head>
+<body>
+<header>
+    <i class="iconfont icon-zuojiantou"></i>
+</header>
+<div class="way">付款方式</div>
+<div class="figure">
+    <div class="figure-L">
+        <div></div>
+        <span>您本次消费的金额</span>
+    </div>
+    <div class="figure-R">
+        <h5>RMB</h5>
+        <span>{{ price.price }}</span>
+    </div>
+</div>
+<main>
+    <ul>
+        <li>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-zhifubao"></use>
+            </svg>
+            <h4>支付宝支付</h4>
+            <h5>ALIPAY</h5>
+        </li>
+        <li>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-weixin"></use>
+            </svg>
+            <h4>微信支付</h4>
+            <h5>WACHAT PAY</h5>
+        </li>
+        <a href="{% url 'yujiaxm:bank' id=dd.id%}">
+        <li>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-yinhangqia"></use>
+            </svg>
+            <h4>银行卡支付</h4>
+            <h5>BANKCARD PAY</h5>
+        </li>
+        </a>
+        <li>
+            <h4>EMPTY</h4>
+        </li>
+    </ul>
+</main>
+</body>
+</html>
+<style type="text/css">
+    .icon {
+       width: .66em; height: .66em;
+       vertical-align: -0.15em;
+       fill: currentColor;
+       overflow: hidden;
+       margin-bottom: .22rem
+    }
+</style>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,minimal-ui">
+    {% load static %}
+    <script src="{% static 'zzy/js/rem.js' %}"></script>
+    <script src="{% static 'zzy/js/jQuery.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'zzy/css/register.css' %}">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_990002_adumvxmht4q.css">
+</head>
+<style>
+    .errorlist li{
+        font-size: 0.3rem;
+        text-align: center;
+        line-height: 0.5rem;
+        color: #fc7aae;
+    }
+</style>
+<body>
+    <header>
+        <h1>瑜+</h1>
+        <h2>只为更好的训练</h2>
+    </header>
+    <main>
+        <ul class="dian">
+            <li><div></div></li>
+            <li>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </li>
+            <li><div></div></li>
+            <li><div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div></li>
+            <li><div></div></li>
+        </ul>
+        <form action="/register/" method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+        <div class="input">
+            {{ form.name }}
+            <!--<input type="text" id="zhanghao" placeholder="请输入您的账号或邮箱">-->
+            <div class="dian1"></div>
+        </div>
+        <div class="input">
+            <input type="text" placeholder="请输入验证手机号码">
+            <div class="dian1"></div>
+        </div>
+        <div class="input">
+            {{ form.password }}
+            <!--<input type="password" id="password" placeholder="请输入验证码">-->
+            <div class="dian1"></div>
+            <div class="gou"><i class="iconfont icon-duihao"></i></div>
+        </div>
+        <div class="input">
+            <input type="password" id="password1" placeholder="请再次输入验证码">
+            <div class="dian1"></div>
+            <div class="gou"><i class="iconfont icon-duihao"></i></div>
+            <ul class="tips">
+                您两次输入的密码不一致
+            </ul>
+        </div>
+        <button id="btn"><i class="iconfont icon-duihao"></i></button>
+        </form>
+    </main>
+</body>
+<script>
+$('#btn').click(function(){
+    let pwd=$('#id_password').val()
+    let pwd1=$('#password1').val()
+    if(pwd!=pwd1){
+        $('.tips').css('display','block');
+        $('#password').siblings('.gou').css('display','none');
+        $('#password1').siblings('.gou').css('display','block');
+        $('#password1').siblings('.gou').find('i').attr('class','iconfont icon-point');
+        $('#password1').siblings('.gou').css('background','#fd1e40');
+    }
+    else{
+        $('.tips').css('display','none');
+        $('#password').siblings('.gou').css('display','block');
+        $('#password1').siblings('.gou').css('display','block');
+        $('#password1').siblings('.gou').find('i').attr('class','iconfont icon-duihao');
+        $('#password1').siblings('.gou').css('background','#32e123');
+    }
+})
+</script>
+</html>

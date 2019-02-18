@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>课程分类</title>
+	{% load static %}
+	<script src="{% static 'yoga/js/jQuery.js' %}"></script>
+	<script src="{% static 'yoga/js/rem.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'yoga/css/category.css' %}">
+</head>
+<body>
+	<div class="order">
+		<span class="order1">训练</span>
+	</div>
+	<div class="cate">
+		<a href="/category"><span class="two">课程分类</span></a>
+		<a href="/music"><span>瑜伽音乐</span></a>
+		<a href="/act"><span>动作库</span></a>
+	</div>
+	{% for item in cate %}
+	<div class="hot">
+		<h3>{{ item.name }}</h3>
+		<div class="me">
+			<p>{{ item.title }}</p>
+			<p>{{ item.people }}人已参加训练</p>
+		</div>
+		<img src=" /static/yoga/{{ item.img }}" alt="">
+	</div>
+	<!--<div class="hot hot1">-->
+		<!--<h3>新手入门</h3>-->
+		<!--<div class="me">-->
+			<!--<p>调控身心——沟通自然</p>-->
+			<!--<p>528879以参加训练</p>-->
+		<!--</div>-->
+		<!--<img src="{% static 'yoga/img/hot2.png' %}" alt="">-->
+	<!--</div>-->
+	<!--<div class="hot hot1">-->
+		<!--<h3>入门阶段</h3>-->
+		<!--<div class="me">-->
+			<!--<p>欢"瑜"——无处不在</p>-->
+			<!--<p>528879以参加训练</p>-->
+		<!--</div>-->
+		<!--<img src="{% static 'yoga/img/hot3.png' %}" alt="">-->
+	<!--</div>-->
+	{% endfor %}
+	<footer>
+		<div class="footer-top">
+			<ul>
+				<li>
+					<a href="/order">
+						<img src="{% static 'yoga/img/footer5.png' %}" alt="">
+						<p>预约</p>
+					</a>
+				</li>
+				<li>
+					<a href="/category">
+						<img src="{% static 'yoga/img/footer6.png' %}" alt="">
+						<p class="one">运动</p>
+					</a>
+				</li>
+				<li>
+					<img src="{% static 'yoga/img/footer3.png' %}" alt="">
+					<p>动态</p>
+				</li>
+				<li>
+					<a href="/index">
+						<img src="{% static 'yoga/img/footer4.png' %}" alt="">
+						<p>我的</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>

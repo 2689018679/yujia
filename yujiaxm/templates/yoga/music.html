@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>瑜伽音乐</title>
+	{% load static %}
+	<script src="{% static 'yoga/js/jQuery.js' %}"></script>
+	<script src="{% static 'yoga/js/rem.js' %}"></script>
+	<link rel="stylesheet" href="https://at.alicdn.com/t/font_992846_et7s3l6qey7.css">
+	<link rel="stylesheet" href="{% static 'yoga/css/music.css' %}">
+</head>
+<body>
+	<div class="order">
+		<span class="order1">训练</span>
+	</div>
+	<div class="cate">
+		<a href="/category"><span>课程分类</span></a>
+		<a href="/music"><span class="two">瑜伽音乐</span></a>
+		<a href="/act"><span>动作库</span></a>
+	</div>
+	<div class="category">
+		<span>歌单分类</span>
+		<i class="iconfont icon-search"></i>
+	</div>
+	<div class="cateimg">
+		<ul>
+			{% for item in music %}
+				<li>
+					<a href="/songs{{ item.id }}">
+						<img src="/static/yoga/{{ item.img }}" alt="">
+						<h3>{{ item.name }}</h3>
+					</a>
+				</li>
+			<!--<li>-->
+				<!--<img src="{% static 'yoga/img/music2.png' %}" alt="">-->
+				<!--<h3>舒缓柔光</h3>-->
+			<!--</li>-->
+			<!--<li>-->
+				<!--<img src="{% static 'yoga/img/music3.png' %}" alt="">-->
+				<!--<h3>提升睡眠质量</h3>-->
+			<!--</li>-->
+			<!--<li>-->
+				<!--<img src="{% static 'yoga/img/music4.png' %}" alt="">-->
+				<!--<h3>释放压力</h3>-->
+			<!--</li>-->
+			{% endfor %}
+		</ul>
+	</div>
+	<footer>
+		<div class="footer-top">
+			<ul>
+				<li>
+					<a href="/order">
+						<img src="{% static 'yoga/img/footer5.png' %}" alt="">
+						<p>预约</p>
+					</a>
+				</li>
+				<li>
+					<a href="/category">
+						<img src="{% static 'yoga/img/footer6.png' %}" alt="">
+						<p class="one">运动</p>
+					</a>
+				</li>
+				<li>
+					<img src="{% static 'yoga/img/footer3.png' %}" alt="">
+					<p>动态</p>
+				</li>
+				<li>
+					<a href="/index">
+						<img src="{% static 'yoga/img/footer4.png' %}" alt="">
+						<p>我的</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>

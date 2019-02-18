@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>场馆预约</title>
+	{% load static %}
+	<script src="{% static 'yoga/js/jQuery.js' %}"></script>
+	<script src="{% static 'yoga/js/rem.js' %}"></script>
+	<script src="{% static 'yoga/js/index.js' %}"></script>
+	<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.12&key=2e8a6ab6079969d1bd459bbf3b1521fa&plugin=AMap.AdvancedInfoWindow"></script>
+    <!-- <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.12&key=2e8a6ab6079969d1bd459bbf3b1521fa&plugin=AMap.DistrictSearch"></script> -->
+
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+
+    <script type="text/javascript" src="https://a.amap.com/jsapi_demos/static/demo-center/js/jquery-1.11.1.min.js" ></script>
+    <script type="text/javascript" src="https://a.amap.com/jsapi_demos/static/demo-center/js/underscore-min.js" ></script>
+    <script type="text/javascript" src="https://a.amap.com/jsapi_demos/static/demo-center/js/backbone-min.js" ></script>
+    <script type="text/javascript" src='https://a.amap.com/jsapi_demos/static/demo-center/js/prety-json.js'></script>
+    <script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
+	<link rel="stylesheet" href="https://at.alicdn.com/t/font_992846_m9dsmmhu3d9.css">
+	<link rel="stylesheet" href="{% static 'yoga/css/order.css' %}">
+</head>
+<style>
+	#container {
+        width:900px; height: 600px;
+        position: relative;
+        display: none;
+    }
+    .info{
+        width:20px;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        top: 10px;
+        background-color: white;
+        width: auto;
+        min-width: 220px;
+        border-width: 0;
+        right: 10px;
+        box-shadow: 0 2px 6px 0 rgba(114, 124, 245, .5);
+        z-index: 99;
+        font-size: 10px;
+
+    }
+    /* 检索窗口  */
+    .custom-input-card {
+            width: 22rem;
+        }
+
+        .custom-input-card .btn {
+            margin-right: 1rem;
+        }
+
+        .custom-input-card .btn:last-child {
+            margin-right: 0;
+        }
+
+        .info-title {
+            color: white;
+            font-size: 14px;
+            background-color: #25A5F7;
+            line-height: 26px;
+            padding: 0px 0 0 6px;
+            font-weight: lighter;
+            letter-spacing: 1px
+        }
+
+        .info-content {
+            font: 12px Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial;
+            padding: 4px;
+            color: #666666;
+            line-height: 23px;
+        }
+
+        .info-content img {
+            float: left;
+            margin: 3px;
+        }
+
+        .amap-info-combo .keyword-input{
+            height: 25px;
+            border-radius: 2px 0 0 2px;
+        }
+
+
+     /* 检索窗口结束 */
+</style>
+<body>
+	<div class="order">
+		<span class="order1">场馆预约</span>
+		<i class="iconfont icon-didian1"></i>
+	</div>
+	<div class="photo">
+		<img src="{% static 'yoga/img/pic1.png' %}" alt="">
+		<img src="{% static 'yoga/img/pic2.png' %}" alt="">
+	</div>
+	<div class="changguan">
+		<div class="changguan-left">
+			<div class="free">
+				<img src="{% static 'yoga/img/pic3_32.jpg' %}" alt="">
+				<div class="one">
+					<h3>免费场馆</h3>
+					<h4>免费体验瑜伽课程</h4>
+				</div>
+			</div>
+		</div>
+		<div class="changguan-right">
+			<div class="free">
+				<img src="{% static 'yoga/img/pic4_36.jpg' %}" alt="">
+				<div class="one">
+					<h3>特惠场馆</h3>
+					<h4>瑜伽课程专业定制</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="place">
+		<div class="red"></div>
+		<span>附近<span class="color">场馆</span></span>
+		<span class="dy">></span>
+	</div>
+	{% for item in list_order %}
+	<div class="wake">
+		<a href="/changguanxq_{{ item.id }}">
+			<img src=" /static/yoga/{{ item.img }} " alt="" class="ph">
+			<div class="con">
+				<h3>{{ item.username }}</h3>
+				<ul>
+					<li></li>
+					<li class="two"></li>
+					<li></li>
+				</ul>
+				<div class="box">
+					{% if item.assess == 1 %}
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					{% elif item.assess == 2 %}
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					{% elif item.assess == 3 %}
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					{% elif item.assess == 4 %}
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					{% else %}
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+					{% endif %}
+				</div>
+				<div class="red"></div>
+				<span>{{ item.place }}</span>
+				<span>{{ item.distance }}</span>
+		</div>
+		</a>
+	</div>
+	{% endfor %}
+	<footer>
+		<div class="footer-top">
+			<ul>
+				<li>
+					<a href="/order">
+						<img src="{% static 'yoga/img/footer1.png' %}" alt="">
+						<p class="one">预约</p>
+					</a>
+				</li>
+				<li>
+					<a href="/category">
+						<img src="{% static 'yoga/img/footer2.png' %}" alt="">
+						<p>运动</p>
+					</a>
+				</li>
+				<li>
+					<img src="{% static 'yoga/img/footer3.png' %}" alt="">
+					<p>动态</p>
+				</li>
+				<li>
+					<a href="/index">
+						<img src="{% static 'yoga/img/footer4.png' %}" alt="">
+						<p>我的</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+	<div id="container"></div>
+    <div class="info" style="display:none">
+         <p id='adcode'></p>
+        <h4 id='status'></h4><hr>
+        <p id='result'></p><hr>
+        <p><span id="map-city"></span></p>
+
+    </div>
+    <!-- 定位信息 -->
+    <!-- 检索窗口 -->
+    <div class="input-card custom-input-card" style="display:none">
+        <div class="input-item">
+            <input type="button" class="btn" id='btn' value="输入以查找" onClick="infowindow1.open(map,lnglat)"/>
+        </div>
+    </div>
+    <!-- 检索窗口结束 -->
+</body>
+<script type="text/javascript">
+
+
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+        center:[112.55449,37.82611],
+        // center: lnglat,
+        zoom: 15
+    });
+
+
+    var lnglat = []
+    AMap.plugin('AMap.Geolocation', function() {
+        // console.log(1)
+        var geolocation = new AMap.Geolocation({
+            enableHighAccuracy: true,//是否使用高精度定位，默认:true
+            timeout: 10000,          //超过10秒后停止定位，默认：5s
+            buttonPosition:'RB',    //定位按钮的停靠位置
+            buttonOffset: new AMap.Pixel(0, 0),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+            zoomToAccuracy: true,   //定位成功后是否自动调整地图视野到定位点
+
+        });
+
+        map.addControl(geolocation);
+        geolocation.getCurrentPosition(function(status,result){
+
+            if(status=='complete'){
+                lnglat1 = onComplete(result)    // 返回结果 (接受返回值)
+                console.log(1)
+                console.log(`lnglat:${lnglat1}`)
+                window.lnglat=lnglat1
+                console.log(window.lnglat)
+                $.ajax({
+                	url:'/order/',
+                	type:'post',
+                	dataType:'json',
+                	traditional:true,
+            		data:{
+                		lnglat:JSON.stringify(lnglat)
+            		},
+
+                })
+                // $.ajax({
+                //     async:false,
+                //     success:function(){
+                //     lnglat = lnglat1
+                //     }
+                // })
+
+            }else{
+                onError(result)
+            }
+        });
+    });
+
+    //解析定位结果
+
+
+    function onComplete(data) {
+
+        document.getElementById('status').innerHTML='定位成功'
+        var str = [];
+        str.push('定位结果：' + data.position);
+        str.push('定位类别：' + data.location_type);
+
+        console.log('当前经度',data.position.lat)  //获取纬度值。
+        console.log('当前纬度',data.position.lng)  //获取经度值。
+        if(data.accuracy){
+             str.push('精度：' + data.accuracy + ' 米');
+        }//如为IP精确定位结果则没有精度信息
+        str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+        document.getElementById('result').innerHTML = str.join('<br>');
+
+        lnglat = [data.position.lat,data.position.lng]
+        return lnglat
+
+    }
+
+    // console.log(data)
+    console.log(lnglat)
+
+
+
+    // console.log(data.position)
+    //解析定位错误信息
+    function onError(data) {
+        document.getElementById('status').innerHTML='定位失败'
+        document.getElementById('result').innerHTML = '失败原因排查信息:'+data.message;
+    }
+
+    // 检索窗口
+    var lnglat = [112.55449,37.82611]
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+        center: lnglat,
+        zoom: 15
+    });
+    var marker = new AMap.Marker({
+        position: lnglat
+    });
+    marker.setMap(map);
+
+    var infowindow1 = new AMap.AdvancedInfoWindow({      // 搜索框
+        offset: new AMap.Pixel(0, -30)
+    });
+
+    // var btn_val = document.getElementById('.keyword').value
+    // console.log(btn_val)
+
+
+    // 当前行政区
+     //获取并展示当前城市信息
+    function logMapinfo(){
+        map.getCity( function(info){
+        var node = new PrettyJSON.view.Node({
+            el: document.querySelector("#map-city"),
+            data: info
+        });
+         $.ajax({
+            url:'/order/',
+            type:'post',
+            dataType: 'json',
+            traditional:true,
+            data:{
+                data:JSON.stringify(node.data)
+            },
+            success:function(e){
+            	for(let i=0;i<e['s'].length;i++){
+					$('.order').append(`
+
+					<span class="order2">${e['s'][i]}</span>
+
+					`)
+            	}
+
+            }
+        })
+        console.log(node.data)   // 获取当前位置信息
+      });
+    }
+
+    logMapinfo()
+
+    //绑定地图移动事件
+    map.on('moveend', logMapinfo);
+     //获取并展示当前城市信息结束
+
+
+    // 获取搜索信息
+    function autoInput(){
+    var keywords = '瑜伽';
+    AMap.plugin('AMap.PlaceSearch', function(){
+    var autoOptions = {
+        city: '0351'
+    }
+    var placeSearch = new AMap.PlaceSearch(autoOptions);
+    placeSearch.search(keywords, function(status, result) {
+        // 搜索成功时，result即是对应的匹配数据
+        var node = new PrettyJSON.view.Node({
+            el: document.querySelector("#input-info"),
+            data: result
+        });
+        info = node.data.poiList.pois
+        for( var i=0; i<info.length; i++){
+            // console.log(info[i])
+            infos= info[i]
+            // console.log(typeof infos)
+            Object.keys(infos).forEach(function(key){
+            console.log(key,infos[key]);                   // 遍历店铺信息
+        });
+
+        // console.log(infos.location.lng)
+        // console.log(infos.location.lat)
+
+        }
+
+    })
+    })
+}
+    autoInput();
+    // 获取搜索信息结束
+
+</script>
+</html>

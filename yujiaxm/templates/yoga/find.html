@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>发现搜索</title>
+	{% load static %}
+	<script src="{% static 'yoga/js/jQuery.js' %}"></script>
+	<script src="{% static 'yoga/js/rem.js' %}"></script>
+	<link rel="stylesheet" href="https://at.alicdn.com/t/font_992846_h0x2u0stodm.css">
+	<link rel="stylesheet" href="{% static 'yoga/css/find.css' %}">
+</head>
+<body>
+	<a href="/exploration_con">
+		<i class="iconfont icon-houtui"></i>
+	</a>
+	<h3 class="order1">发现搜索</h3>
+	<div class="search">
+		<a href="/search">
+			<i class="iconfont icon-search"></i>
+			<input type="text" placeholder="搜索">
+			<i class="iconfont icon-yuyin"></i>
+		</a>
+	</div>
+	<div class="all">
+		<div class="all-left">全部商品</div>
+		<div class="all-left all-right">人气推荐</div>
+	</div>
+	{% for item in list_order %}
+	<div class="wake">
+		<p>{{ item.username }}</p>
+		<img src="/static/yoga/{{ item.img }}" alt="" class="ph">
+		<div class="con">
+			<h3>{{ item.username }}</h3>
+			<h4>地址：{{ item.place }}</h4>
+			<div class="box">
+				{% if item.assess == 1 %}
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				{% elif item.assess == 2 %}
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				{% elif item.assess == 3 %}
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				{% elif item.assess == 4 %}
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				{% else %}
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				<img src="{% static 'yoga/img/xingxing.png' %}" alt="">
+				{% endif %}
+			</div>
+
+		</div>
+	</div>
+	<!--<div class="wake">-->
+		<!--<p>执古 &nbsp;&nbsp;瑜伽馆</p>-->
+		<!--<img src="{% static 'yoga/img/yujia2.png' %}" alt="" class="ph">-->
+		<!--<div class="con">-->
+			<!--<h3>执古 &nbsp;&nbsp;瑜伽馆</h3>-->
+			<!--<h4>地址：上海市黄浦区山东中路311号</h4>-->
+			<!--<div class="box">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+			<!--</div>-->
+			<!--<span class="jl">0.9km</span>-->
+		<!--</div>-->
+	<!--</div>-->
+	<!--<div class="wake">-->
+		<!--<p>Wake</p>-->
+		<!--<img src="{% static 'yoga/img/yujia3.png' %}" alt="" class="ph">-->
+		<!--<div class="con">-->
+			<!--<h3>Wake &nbsp;&nbsp;瑜伽馆</h3>-->
+			<!--<h4>地址：上海市南苏州路381号二楼</h4>-->
+			<!--<div class="box">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+			<!--</div>-->
+			<!--<span class="jl">1.3km</span>-->
+		<!--</div>-->
+	<!--</div>-->
+	<!--<div class="wake">-->
+		<!--<p>瑜 &nbsp;&nbsp;瑜伽馆</p>-->
+		<!--<img src="{% static 'yoga/img/yujia4.png' %}" alt="" class="ph">-->
+		<!--<div class="con">-->
+			<!--<h3>瑜 &nbsp;&nbsp;瑜伽馆</h3>-->
+			<!--<h4>地址：上海市静安区余姚路770-722号</h4>-->
+			<!--<div class="box">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+			<!--</div>-->
+			<!--<span class="jl">2.3km</span>-->
+		<!--</div>-->
+	<!--</div>-->
+	<!--<div class="wake">-->
+		<!--<p>YOGALATO &nbsp;&nbsp;瑜伽馆</p>-->
+		<!--<img src="{% static 'yoga/img/yujia5.png' %}" alt="" class="ph">-->
+		<!--<div class="con">-->
+			<!--<h3>YOGALATO</h3>-->
+			<!--<h4>地址：上海市静安区昌平路182号三楼</h4>-->
+			<!--<div class="box">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+				<!--<img src="{% static 'yoga/img/xingxing.png' %}" alt="">-->
+			<!--</div>-->
+			<!--<span class="jl">3.6km</span>-->
+		<!--</div>-->
+	<!--</div>-->
+	{% endfor %}
+</body>
+</html>

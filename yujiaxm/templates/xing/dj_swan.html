@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% load static %}
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,minimal-ui">
+	<title>天鹅颈训练</title>
+	<script src="{% static 'dj/dj_js/rem(1).js'%}"></script>
+	<link rel="stylesheet" href="https://at.alicdn.com/t/font_992846_iieqmdh5ghs.css">
+	<link rel="stylesheet" href="{% static 'dj/dj_css/dj_swan.css'%}">
+</head>
+<body>
+	<img src="{% static 'dj/dj_img/微信图片_20190103171734.png'%}" alt="">
+	<video src="{% static 'xing/img/40948705-1-6.mp4' %}" id="yujiashipin" autoplay="autoplay" controls="controls"></video>
+	{% for i in dd %}
+	<h2>{{ i.name }}</h2>
+	<div class="time">
+		<ul>
+			<li>课时</li>
+			<li>时长</li>
+			<li>难度</li>
+		</ul>
+	</div>
+	<div class="num">
+		<ul>
+			<li>{{ i.ke_time }}</li>
+			<li>{{ i.shi_time }}</li>
+			<li>{{ i.rank }}</li>
+		</ul>
+	</div>
+	<div class="course">
+		<span>课程<span class="present">介绍</span></span>
+		<h3>{{ i.produce }}</h3>
+	</div>
+	<div class="more">查看更多</div>
+	<div class="course">
+		<span>适合<span class="present">人群</span></span>
+		<h3>{{ i.people }}</h3>
+	</div>
+	{% endfor %}
+	<footer>
+		<div class="left">
+			<i class="iconfont icon-bofang"></i>
+			<span>播放</span>
+		</div>
+		<div class="right">
+			<span>缓存</span>
+			<i class="iconfont icon-xiazai"></i>
+		</div>
+	</footer>
+</body>
+</html>

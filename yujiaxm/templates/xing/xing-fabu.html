@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'xing/css/xing-fabu.css'%}">
+    <script src="{% static 'xing/js/jQuery.js'%}"></script>
+    <script src="{%static 'xing/js/rem(1).js'%}"></script>
+    <title>发布</title>
+</head>
+<body>
+    <header></header>
+    <div id="caozuo">
+        <img src="{% static 'xing/img/cuo.png'%}" alt="" id="cuo">
+        <div id=fabuzi>发布</div>
+        <img src="{% static 'xing/img/dui.png'%}" alt="" id="dui">
+    </div>
+    <textarea name="" id="shuruqu" cols="30" rows="10" placeholder="请输入您想输入的文字......"></textarea>
+</body>
+</html>

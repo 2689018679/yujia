@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'xing/css/xing-yyddxq.css'%}">
+    <script src="{% static 'xing/js/jQuery.js'%}"></script>
+    <script src="{%static 'xing/js/rem(1).js'%}"></script>
+    <title>订单详情</title>
+</head>
+<body>
+    <header></header>
+    <div id="backar">
+        <a href=""><img src="{%static 'xing/img/xing-back.png'%}" alt="" id="back"></a>
+    </div>
+    <div id="ddxq">订单详情</div>
+    {% for i in dd %}
+    <a href="yyxq">
+        <div id="w_xq">
+            <div id="xqq">{{ i.neirong }}</div>
+            <div id="xxxx">
+                <img src="{%static 'xing/img/xqtu.png'%}" alt="" id="xqtu">
+                <div id="you_xqing">
+                    <div id="you_xqing1">有限时间：<span id="shijian">{{ i.riqi }}</span></div>
+                    <div id="you_xqing1" style="letter-spacing: 0.22rem;">下午：<span id="shijian">{{ i.shijianduan }}</span><div id="didian">{{ i.didian }}</div></div>
+                    <div id="you_xqing1">已选：<span id="">{{ i.chance }}</span>场次</div>
+                </div>
+            </div>
+            <div id="zongjia">总计：<span id="zongnum">{{ i.price }}</span>元</div>
+        </div>
+    </a>
+    {% endfor %}
+</body>
+</html>

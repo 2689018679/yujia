@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,minimal-ui">
+    {% load static %}
+    <script src="{% static 'zzy/js/rem.js' %}"></script>
+    <script src="{% static 'zzy/js/jQuery.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'zzy/css/login.css' %}">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_990002_uq2by5fs6ah.css">
+     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.12&key=2e8a6ab6079969d1bd459bbf3b1521fa&plugin=AMap.AdvancedInfoWindow"></script>
+</head>
+<style>
+    .errorlist li{
+        font-size: 0.3rem;
+        text-align: center;
+        line-height: 0.5rem;
+        color: #fc7aae;
+    }
+</style>
+<body>
+    <header>
+        <h1>瑜+</h1>
+        <h2>只为更好的训练</h2>
+    </header>
+    <main>
+        <div class="touxiang"><i class="iconfont icon-gerenyonghutouxiang2"></i></div>
+        <div class="dian2">
+            <span></span><span></span>
+        </div>
+        <form action="/" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="jd" id="jd" value="">
+            <input type="hidden" name="wd" id="wd" value="">
+            <input type="hidden" name="wz" id="wz" value="">
+            {{ form.non_field_errors }}
+        <div class="input">
+            {{ form.name }}{{ form.errors.name.0 }}
+            <!--<input type="text" id="zhanghao" placeholder="请输入您的账号或邮箱">-->
+            <div class="gou"><i class="iconfont icon-duihao"></i></div>
+            <ul class="tips" style="display:none;">
+                <li>qq.com</li>
+                <li>126.com</li>
+                <li class="hot">163.com</li>
+            </ul>
+        </div>
+        <div class="input">
+            {{form.password}}{{ form.errors.password.0 }}
+            <!--<input type="password" id="password" placeholder="请输入密码">-->
+            <div class="gou"><i class="iconfont icon-duihao"></i></div>
+        </div>
+        <div class="qw">
+            <div><i class="iconfont icon-qq"></i></div>
+            <div><i class="iconfont icon-weixin"></i></div>
+        </div>
+        <button><i class="iconfont icon-duihao"></i></button>
+        </form>
+    </main>
+    <footer>
+        <div></div>
+        <h3>还不是我们的会员</h3>
+        <h3><a href="/register/" style="text-decoration: none;color: #fc7aae;">立即注册</a></h3>
+        <div></div>
+    </footer>
+</body>
+
+<script>
+	var map = new AMap.Map('container', {
+        resizeEnable: true,
+        center:[112.55449,37.82611],
+        zoom: 15
+    });
+
+    var lnglat = []
+    AMap.plugin('AMap.Geolocation', function() {
+        // console.log(1)
+        var geolocation = new AMap.Geolocation({
+            enableHighAccuracy: true,//是否使用高精度定位，默认:true
+            timeout: 10000,          //超过10秒后停止定位，默认：5s
+            buttonPosition:'RB',    //定位按钮的停靠位置
+            buttonOffset: new AMap.Pixel(0, 0),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+            zoomToAccuracy: true,   //定位成功后是否自动调整地图视野到定位点
+        });
+
+        map.addControl(geolocation);
+        geolocation.getCurrentPosition(function(status,result){
+            console.log(status)
+            if(status=='complete'){
+                $('#jd').val(result.position.lng)
+                $('#wd').val(result.position.lat)
+                $('#wz').val(result.addressComponent.district)
+
+            }
+        });
+    });
+
+
+
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	{% load static %}
+	<script src="{% static 'hq/js/rem.js' %}"></script>
+	<script src="{% static 'hq/js/jQuery.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'hq/css/Discovery.css' %}">
+	<link rel="stylesheet" href="https://at.alicdn.com/t/font_995864_f9h7e5ipx6k.css">
+	<link rel="stylesheet" href="https://at.alicdn.com/t/font_990002_1mlbjgqrrvt.css">
+	<title>Document</title>
+</head>
+<body>
+<header>
+	<i class="iconfont icon-zhixiangzuozuojiantou" style="color: #19CDF4;font-size: 20px;float: left;margin-left: 0.41rem;"><div class="border"></div></i>
+	</header>
+	<h1>发现探索</h1>
+	<div class="search">
+		<i class="iconfont icon-sousuo1" id="search"></i>
+		<input type="text" placeholder="瑜伽" id="searcht">
+		<i class="iconfont icon-guanbi" id="clear"></i>
+	</div>
+	<div class="num">
+		<p>搜索</p>
+		<h5>结果</h5>
+		<div class="yuan"></div>
+		<i class="iconfont icon-xiajiantou"></i>
+	</div>
+	<div class="img">
+		<p>很抱歉没有搜索结果</p>
+		<img src="{% static 'hq/img/圆角矩形1拷贝6@3x.png' %}" alt="">
+	</div>
+	
+</body>
+
+<script>
+	$('#search').click(function(){
+		if($('#searcht').val()!=''){
+			window.location.href = `/exploration_${$('#searcht').val()}/`;
+		}
+	})
+	$('#searcht').on('input propertychange',function(){
+		if($('#searcht').val()!=''){
+			$('#clear').css('display','block');
+		}
+	})
+	$('#clear').click(function(){
+		$('#searcht').val('')
+		$('#clear').css('display','none')
+	})
+</script>
+</html>

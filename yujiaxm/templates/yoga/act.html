@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>动作库</title>
+	{% load static %}
+	<script src="{% static 'yoga/js/jQuery.js' %}"></script>
+	<script src="{% static 'yoga/js/rem.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'yoga/css/act.css' %}">
+</head>
+<body>
+	<div class="order">
+		<span class="order1">训练</span>
+	</div>
+	<div class="cate">
+		<a href="/category"><span>课程分类</span></a>
+		<a href="/music"><span>瑜伽音乐</span></a>
+		<a href="/act"><span class="two">动作库</span></a>
+	</div>
+	<h3 class="act">动作库</h3>
+	<div class="actimg">
+		<ul>
+			{% for item in act %}
+			<li>
+				<a href="/dongzuoxq">
+				<img src="/static/yoga/{{ item.img }}" alt="">
+				<h3>{{ item.name }}</h3>
+				</a>
+			</li>
+			<!--<li>-->
+				<!--<img src="{% static 'yoga/img/act2_56.jpg' %}" alt="">-->
+				<!--<h3>平衡支撑</h3>-->
+			<!--</li>-->
+			<!--<li>-->
+				<!--<img src="{% static 'yoga/img/act3_58.jpg' %}" alt="">-->
+				<!--<h3>拉伸训练</h3>-->
+			<!--</li>-->
+			<!--<li>-->
+				<!--<img src="{% static 'yoga/img/act4_52.jpg' %}" alt="">-->
+				<!--<h3>支撑训练</h3>-->
+			<!--</li>-->
+			<!--<li>-->
+				<!--<img src="{% static 'yoga/img/act1_54.jpg' %}" alt="">-->
+				<!--<h3>臀部训练</h3>-->
+			<!--</li>-->
+			<!--<li>-->
+				<!--<img src="{% static 'yoga/img/act2_56.jpg' %}" alt="">-->
+				<!--<h3>禅修冥想</h3>-->
+			<!--</li>-->
+			<!--<li>-->
+				<!--<img src="{% static 'yoga/img/act3_58.jpg' %}" alt="">-->
+				<!--<h3>腿部训练</h3>-->
+			<!--</li>-->
+			<!--<li>-->
+				<!--<img src="{% static 'yoga/img/act4_52.jpg' %}" alt="">-->
+				<!--<h3>平衡训练</h3>-->
+			<!--</li>-->
+			<!--<li>-->
+				<!--<img src="{% static 'yoga/img/act1_54.jpg' %}" alt="">-->
+				<!--<h3>手臂训练</h3>-->
+			<!--</li>-->
+			<!--<li>-->
+				<!--<img src="{% static 'yoga/img/act2_56.jpg' %}" alt="">-->
+				<!--<h3>全身支撑</h3>-->
+			<!--</li>-->
+			<!--<li>-->
+				<!--<img src="{% static 'yoga/img/act3_58.jpg' %}" alt="">-->
+				<!--<h3>腰部训练</h3>-->
+			<!--</li>-->
+			<!--<li>-->
+				<!--<img src="{% static 'yoga/img/act4_52.jpg' %}" alt="">-->
+				<!--<h3>腹部训练</h3>-->
+			<!--</li>-->
+			{% endfor %}
+		</ul>
+	</div>
+	<footer>
+		<div class="footer-top">
+			<ul>
+				<li>
+					<a href="/order">
+						<img src="{% static 'yoga/img/footer5.png' %}" alt="">
+						<p>预约</p>
+					</a>
+				</li>
+				<li>
+					<a href="/category">
+						<img src="{% static 'yoga/img/footer6.png' %}" alt="">
+						<p class="one">运动</p>
+					</a>
+				</li>
+				<li>
+					<img src="{% static 'yoga/img/footer3.png' %}" alt="">
+					<p>动态</p>
+				</li>
+				<li>
+					<a href="/index">
+						<img src="{% static 'yoga/img/footer4.png' %}" alt="">
+						<p>我的</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>

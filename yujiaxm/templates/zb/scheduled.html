@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'zb/css/scheduled.css'%}">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_995597_91v4xjof2mr.css">
+    <script src='https://at.alicdn.com/t/font_995597_e9rzzbvg1on.js'></script>
+    <link rel="stylesheet" href="{% static 'zb/css/swiper.css'%}">
+    <script src="{% static 'zb/js/rem.js'%}"></script>
+    <script src="{% static 'zb/js/jQuery.js'%}"></script>
+    <script src="{% static 'zb/js/swiper.js'%}"></script>
+    <title>课时预定</title>
+</head>
+<body>
+<header>
+    <i class="iconfont icon-zuojiantou"></i>
+</header>
+<div class="way">课时预定</div>
+<main>
+    <ul>
+        {% for item in xk %}
+        <li>
+            <span class='cl'>{{ item.id }}</span>
+            <div class='RMB'>
+                <p>RMB</p>
+                <span class='RMB1'>{{ item.price }}</span>
+            </div>
+            <div class='tanchu' style='display: none'>
+                这是弹出界面
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+<div class='tk'>
+    <input type="checkbox">
+    <span>我已阅读并同意服务条款</span>
+</div>
+<div class='amount'>
+    <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-yinhangqia1"></use>
+    </svg>
+    <p>请确定您本次消费的金额</p>
+    <div class='amount-money'>
+        <p>RMB</p>
+        <span></span>
+    </div>
+    
+    <a class='amount-y'>确定并支付</a>
+   
+</div>
+</body>
+<script>
+    $('main ul li').click(function(){
+        $('main ul li').css("background","#fdfdfd");
+        $('main ul li').children().css('color','#a1a1a1')
+        $('main ul li').children().children().css('color','#a1a1a1')
+        $('main ul li').css('margin-bottom','.26rem')
+        $('.tanchu').css('display','none')
+        $(this).css("background","#fff");
+        $(this).children().css('color','#79d7f2')
+        $(this).children().children().css('color','#79d7f2')
+        if($(this).children().css('color')=='rgb(121, 215, 242)'){
+            $(this).find('.tanchu').slideDown()
+            $(this).css('margin-bottom','.9rem')
+            a = $(this).find('.RMB1').text()
+            $('.amount-money').find('span').text(a)
+        }
+
+    })
+    if($('.tk input').is(':checked')){
+
+        }
+    else{
+        $('.amount-y').css('background-image','linear-gradient(to left,#BBB,#BBBBBB)')
+        }
+    $('.tk input').click(function(){
+        if($('.tk input').is(':checked')){
+         $('.amount-y').css('background-image','linear-gradient(to left,#76def5,#5cd0e8)')
+        }
+        else{
+        $('.amount-y').css('background-image','linear-gradient(to left,#BBB,#BBBBBB)')
+        }
+    })
+    $('.amount-y').click(function(){
+        if($('.tk input').is(':checked')){
+            $('.amount-y').attr('href',"{% url 'yujiaxm:period' %}")
+        }
+        else{
+            alert('请阅读条款')
+        }
+    })
+
+</script>
+</html>

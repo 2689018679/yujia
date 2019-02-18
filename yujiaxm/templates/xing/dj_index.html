@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% load static %}
+    <script src="{% static 'dj/dj_js/rem(1).js' %}"></script>
+    <link rel="stylesheet" href="{% static 'dj/dj_css/dj_index.css' %}">
+    <script src="{% static 'xing/js/jQuery.js'%}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header></header>
+    <div id="backar">
+        <a href=""><img src="{% static 'dj/dj_img/xing-back.png'%}" alt="" id="back"></a>
+        <div id="wenzi">禅瑜伽馆</div> 
+    </div>
+    <img src="{% static 'dj/dj_img/QQ浏览器截图20180905224444 拷贝.png'%}" alt="" style="width:6.94rem;height:3.5rem;margin-left: 0.28rem;margin-top: 0.71rem;">
+    <div class="dingyue"><p>推荐</p></div>
+    <div class="dingyue1"><p>订阅</p></div>
+    <div class="we">
+        <table>
+            <tr>
+                <td></td>
+                <td>Mon8.10</td>
+                <td>Mon8.11</td>
+                <td>Mon8.12</td>
+                <td>Mon8.13</td>
+                <td>Mon8.13</td>
+                <td>Mon8.13</td>
+            </tr>
+            <tr>
+                <td>剩余</td>
+                <td>3</td>
+                <td>5</td>
+                <td>6</td>
+                <td>6</td>
+                <td>7</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>免费</td>
+                <td>3</td>
+                <td>5</td>
+                <td>6</td>
+                <td>6</td>
+                <td>7</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>优惠</td>
+                <td>3</td>
+                <td>5</td>
+                <td>6</td>
+                <td>6</td>
+                <td>7</td>
+                <td>2</td>
+            </tr>
+        </table>
+    </div>
+    <img src="{% static 'dj/dj_img/location.png'%}" alt="" style="width:0.44rem;height:0.5rem;margin-left: 0.24rem;margin-top: 0.26rem;">
+    <div class="zi">{{ vd.c_id.place }}</div>
+    <div class="tu1">
+        <img src="{% static 'dj/dj_img/电话(2).png'%}" alt="" style="width:0.44rem;height:0.5rem;">
+    </div>
+    <div class="zi1">预约电话<span id="phnumber">{{ vd.phnumber }}</span></div>
+    <div class="tu2">
+            <img src="{% static 'dj/dj_img/椭圆 16.png'%}" alt="" style="width:0.44rem;height:0.44rem;">
+        </div>
+    <div class="zi2">场馆服务</div>
+    <div id="forgot">
+
+        <div class="omg">
+            <ul>{% load poll_extras %}{{ value | fuwu:vd.server |safe}}</ul>
+        </div>
+    </div>
+    <div class="tu3">
+            <img src="{% static 'dj/dj_img/商店 拷贝.png'%}" alt="" style="width:0.44rem;height:0.44rem;">
+        </div>
+    <div class="zi3">场馆特色</div>
+    <div class="bus">
+        <ul>{{ value | tese:vd.tese |safe}}</ul>
+    </div>
+    <div class="user">
+        <img src="{% static 'dj/dj_img/椭圆17拷贝3.png'%}" alt="" class="userdj">
+        <div class="user1">用户评论&nbsp（165）</div>
+        <img src="{% static 'dj/dj_img/more 拷贝.png'%}" alt="" class="user2">
+    </div>
+    <div class="rng">
+        <h1>4.8</h1>
+        <div class="zonghe">综合评价</div>
+        <img src="{% static 'dj/dj_img/图层 4.png'%}" alt="" class="rng1" style="width: 1.5rem;height: 0.3rem;">
+        <div class="shuxian"></div>
+        <div class="haop">好评率%98</div>
+    </div>
+    {% for i in pl %}
+    <div class="edg">
+        <img src="{% static 'dj/dj_img/形状 1 副本 拷贝.png'%}" alt="" style="width:0.8rem;height:0.8rem;" class="edg1">
+        <div class="shuzi">{{ i.author.username }}</div>
+        <div class="riqi">{{ i.time }}</div>
+    </div>
+    <div class="chan">{{ i.con }}</div>
+    {% endfor %}
+    <div class="chan"></div>
+    <a href="{% url 'yujiaxm:xk' c_id=id %}" id="btn">
+        <button>立即预约</button>
+    </a>
+     
+</body>
+<script>
+    changguan = $('#wenzi').text()
+    $.ajax({
+        url:'/xing/changguanxq/',
+        type:'POST',
+        data:{
+            changguan:changguan
+        },
+        dataType: "dataType",
+        success: function () {
+                
+        }
+    })
+</script>
+</html> 

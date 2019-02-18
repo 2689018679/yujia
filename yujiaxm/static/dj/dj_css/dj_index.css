@@ -1,0 +1,313 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+html,body{
+    width: 100%;
+    height: 24.40rem;
+    position: relative;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+}
+header{
+    height: .51rem;
+}
+#backar{
+    width: 100%;
+    height: 0.71rem;
+    overflow: hidden;
+    position: relative;
+}
+#back{
+    margin-top: 0.22rem;
+    margin-left: 0.38rem;
+    position: absolute;
+    width: 0.25rem;
+    height: 0.2rem;
+}
+#wenzi{
+    width: 2.67rem;
+    height: 0.71rem;
+    position: absolute;
+    font-size: 0.56rem;
+    left: 2.89rem;
+}
+.dingyue{
+    width: 1.58rem;
+    height: 0.58rem;
+    background-color:#b9e5ed;
+    border-radius: 0.2rem;
+    margin-left: 1.68rem;
+    margin-top: 0.23rem; 
+    
+}
+.dingyue p{
+    text-align: center;
+    font-size: 0.29rem;
+    color: black;
+    line-height: 0.58rem;
+}
+.dingyue1{
+    width: 1.58rem;
+    height: 0.58rem;
+    background-color:#e6f3f6;
+    border-radius: 0.2rem;
+    margin-top: 0.23rem;
+    position: absolute;
+    top: 5.67rem;
+    right: 1.68rem;  
+}
+.dingyue1 p{
+    text-align: center;
+    font-size: 0.29rem;
+    color: #b8edf7;
+    line-height: 0.58rem;
+}
+.we{
+    width: 100%;
+    height: 3.2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.we::-webkit-scrollbar{
+    display: none;
+}
+table{
+    width: 8.6rem;
+    height: 2.2rem;
+    background-color: aqua;
+    margin-left: 0.3rem;
+    margin-top: 0.64rem;
+    
+}
+table tr td{
+    font-size: 0.21rem;
+    line-height: 0.24rem;
+    text-align: center;
+}
+.zi{
+    width: 3.45rem;
+    height: 0.25rem;
+    font-size: 0.22rem;
+    line-height: 0.25rem;
+    position: absolute;
+    left: 0.72rem;
+    top: 10.3rem;
+}
+.tu1{
+    margin-left: 0.24rem;
+    margin-top: -0.65rem;
+}
+.tu2{
+    margin-left: 0.24rem;
+    margin-top: -0.34rem;
+}
+.zi1{
+    width: 3.45rem;
+    height: 0.25rem;
+    font-size: 0.28rem;
+    line-height: 0.25rem;
+    position: absolute;
+    left: 0.72rem;
+    top: 10.95rem;
+    color: black;
+}
+.zi2{
+    width: 3.45rem;
+    height: 0.25rem;
+    font-size: 0.28rem;
+    line-height: 0.25rem;
+    position: absolute;
+    left: 0.72rem;
+    top: 12rem;
+    color: black;
+
+}
+.omg ul{
+    height: 0.6rem;
+    margin-left: 0.28rem;
+    display: flex;
+    justify-content: space-between;
+}
+.omg ul li{
+    width: 1.5rem;
+    height: 0.6rem;
+    position: relative;
+}
+.omg ul li .dj1{
+    position: absolute;
+    top:0.1rem;
+    left: 0;
+}
+.omg ul li p{
+    position: absolute;
+    top:0.1rem;
+    left: 0.6rem;
+    font-size: 0.3rem;
+}
+.tu3{
+    margin-left: 0.24rem;
+    margin-top: -0.34rem;
+}
+.zi3{
+    width: 3.45rem;
+    height: 0.25rem;
+    font-size: 0.28rem;
+    line-height: 0.25rem;
+    position: absolute;
+    left: 0.72rem;
+    top: 13.62rem;
+    color: black;
+}
+.bus{}
+.bus ul{
+    width: 7.03rem;
+    height: auto;
+    margin-left: 0.24rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.bus ul li{
+    width: 1.3rem;
+    height: 0.82rem;
+    background-color: #c1ebf6;
+    font-size: 0.24rem;
+    line-height: 0.8rem;
+    border-radius: 0.4rem;
+    text-align: center;
+    margin-right: 0.2rem;
+    margin-top: 0.1rem;
+}
+.bus1{}
+.bus1 ul{
+    width: 3.52rem;
+    height:0.82rem;
+    margin-left: 0.24rem;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.44rem;
+}
+.bus1 ul li{
+    width: 1.3rem;
+    height: 0.82rem;
+    background-color: #c1ebf6;
+    font-size: 0.24rem;
+    line-height: 0.8rem;
+    border-radius: 0.4rem;
+    text-align: center;
+}
+.user{
+    width: 7.29rem;
+    height: 0.7rem;
+    margin-top: 0.71rem;
+    margin-left: 0.24rem;
+    position: relative;
+}
+.user .userdj{
+    position: absolute;
+    top: 0rem;
+    left: -0.15;
+}
+.user1{
+    width: 3.24rem;
+    height: 0.4rem;
+    font-size: 0.32rem;
+    margin-left: 1.2rem;
+    position: absolute;
+    top: 0.08rem;
+}
+.user2{
+    position: absolute;
+    top: 0.08rem;
+    right: 0.12rem;
+}
+.rng{
+    width: 4.76rem;
+    height: 1.7rem;
+
+    margin-top: 0.35rem;
+    margin: 0.35rem auto;
+    position: relative;
+}
+.rng h1{
+    width: 0.55rem;
+    font-size: 0.55rem;
+    line-height: 1.7rem
+}
+.zonghe{
+    width: 1.5rem;
+    height: 0.3rem;
+    font-size: 0.3rem;
+    position: absolute;
+    top: 0.24rem;
+    left: 1rem;
+}
+.rng1{
+    position: absolute;
+    top: 0.84rem;
+    left: 0.9rem;
+}
+.shuxian{
+    width: 0.06rem;
+    height: 0.6rem;
+    background-color: #797979;
+    position: absolute;
+    top: 0.39rem;
+    left: 2.8rem;
+}
+.haop{
+    width: 1.82rem;
+    height: 0.3rem;
+    font-size: 0.32rem;
+    position: absolute;
+    top: 0.49rem;
+    right:0rem;
+}
+.edg{
+    width: 100%;
+    height: 0.8rem;
+    margin-top: 0.28rem;
+    position: relative;
+}
+.edg1{
+    position: absolute;
+    top: 0;
+    left: 0.18rem;
+}
+.shuzi{
+    width: 1rem;
+    font-size: 0.4rem;
+    position: absolute;
+    top: 0.14rem;
+    left: 1rem;
+}
+.riqi{
+    font-size: 0.24rem;
+    position: absolute;
+    top: 0.28rem;
+    left: 4.2rem;
+}
+.chan{
+    width: 7rem;
+    height: 0.56rem;
+    font-size: 0.18rem;
+    margin-left: 0.24rem;
+    margin-top: 0.36rem;
+}
+button{
+    width: 100%;
+    height: 0.9rem;
+    background-color: #76d6f1;
+    font-size: 0.48rem;
+    line-height: 0.9rem;
+    text-align: center;
+    color: #fff;
+    border:none;
+}
+#forgot{
+    display: flex;
+}

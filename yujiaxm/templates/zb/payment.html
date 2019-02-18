@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'zb/css/payment.css'%}">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_995597_91v4xjof2mr.css">
+    <script src='https://at.alicdn.com/t/font_995597_e9rzzbvg1on.js'></script>
+    <link rel="stylesheet" href="{% static 'zb/css/swiper.css'%}">
+    <script src="{% static 'zb/js/rem.js'%}"></script>
+    <script src="{% static 'zb/js/jQuery.js'%}"></script>
+    <script src="{% static 'zb/js/swiper.js'%}"></script>
+    <title>付款方式</title>
+</head>
+<body>
+<div class='Pay'>
+<header>
+    <i class="iconfont icon-zuojiantou"></i>
+</header>
+<div class="way">付款方式</div>
+<div class="figure">
+    <div class="figure-L">
+        <div></div>
+        <span>您本次消费的金额</span>
+    </div>
+    <div class="figure-R">
+        <h5>RMB</h5>
+        <span>{{ price.price }}</span>
+
+    </div>
+</div>
+<div class="clip">
+    <div class="clip-on" style='background: #19cdf4'>
+        <span style='color:#fff'>储蓄卡</span>
+    </div>
+    <div class="clip-on">
+        <span>
+            信用卡
+        </span>
+    </div>
+</div>
+<main id='chuxu'>
+    <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {% for item in yh %}
+                {% if item.Type == "储蓄卡" %}
+                <div class="swiper-slide">
+                        <div class='card'>
+                                <div class="card-top">
+                                    <div class='card-top-L'>
+                                        <div class='card-Y'></div>
+                                    </div>
+                                    <div class='card-top-R'>
+                                        <span class='bankname'>{{item.vest}}</span>
+                                        <span class='cardType'>{{item.Type}}</span>
+                                    </div>
+                                </div>
+                                <div class='card-bottom'>
+                                    <span class='card-number' data-value='{{item.balance}}'>{{item.card}}</span>
+                                </div>
+                        </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+    </div>
+</main>
+<main id='xinyong' style='display: none'>
+    <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {% for item in yh %}
+                {% if item.Type == "信用卡" %}
+                <div class="swiper-slide">
+                        <div class='card'>
+                                <div class="card-top">
+                                    <div class='card-top-L'>
+                                        <div class='card-Y'></div>
+                                    </div>
+                                    <div class='card-top-R'>
+                                        <span class='bankname'>{{item.vest}}</span>
+                                        <span class='cardType'>{{item.Type}}</span>
+                                    </div>
+                                </div>
+                                <div class='card-bottom'>
+                                    <span class='card-number' data-value='{{item.balance}}'>{{item.card}}</span>
+                                </div>
+                        </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+    </div>
+</main>
+<footer>
+    <div class='footer-D'>选择并使用</div>
+    <div class='footer-B' style='background:#ececec;color:#a5a5a5;display:none'>余额不足 无法使用</div>
+</footer>
+</div>
+<!-- 付款成功 -->
+<div class='card-c' style='display: none'>
+<div class='card-s'>
+    {{d}}
+</div>
+<div class='card-t'>
+    <i class='iconfont icon-duihao'></i>
+    <h4>恭喜您支付成功</h4>
+    <p>订单编号：<span>123456789</span></p>
+</div>
+<div class='card-f'>
+    <div class='card-f-d'>查看订单</div>
+</div>
+</div>
+<!-- 网络连接失败 -->
+<div class='card-D' style='display: none'>
+    <div class='card-s'>
+        {{d}}
+    </div>
+    <div class='card-t'>
+        <i class='iconfont icon-gantanhao'></i>
+        <h4 style='color: #c9c9c9'>网络连接出错您本次支付失败</h4>
+    </div>
+    <div class='card-f'>
+        <div class='card-f-d'>检测网络</div>
+    </div>
+    </div>
+<!-- 输入密码 -->
+<div id='enterP' style='display: none'>
+        <header>
+            <i class="iconfont icon-zuojiantou"></i>
+        </header>
+        <div class="way" style='margin-bottom: .6rem'>付款方式</div>
+        <div class='card-s'>
+        {{d}}
+        </div>
+        <div class='passw'>
+        <p class='enter-p'>请输入您的交易密码完成支付</p>
+        <div>
+            <ul class='password-1'>
+                <li>
+                    <input type="password" maxlength="1" id='ps1'>
+                </li>
+                <li>
+                    <input type="password" maxlength="1" id='ps2'>
+                </li>
+                <li>
+                    <input type="password" maxlength="1" id='ps3'>
+                </li>
+                <li>
+                    <input type="password" maxlength="1" id='ps4'>
+                </li>
+                <li>
+                    <input type="password" maxlength="1" id='ps5'>
+                </li>
+                <li>
+                    <input type="password" maxlength="1" id='ps6'>
+                </li>
+                <input type="hidden" id='nameP'>
+            </ul>
+        </div>  
+        </div>
+</div>
+<!-- 密码错误 -->
+<div class='nopas' style='display:none;color:red;font-size: .1rem;text-align: center'>密码输入有误，请您重新输入</div>
+</body>
+<script>        
+    var mySwiper = new Swiper ('.swiper-container', {
+      direction: 'horizontal', // 垂直切换选项
+      loop: true,
+      // 如果需要分页器
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    slidesPerView : 1.175,
+    centeredSlides : true,
+    })
+    $('.clip-on').click(function(){
+        $('.clip-on').css("background","#e4eefa");
+        $('.clip-on').children().css('color','#19cdf4')
+        $(this).css("background","#19cdf4");
+        $(this).children().css('color','#fff')
+        name = $(this).children().text().replace(/(^\s*)|(\s*$)/g, "")
+        if(name=="信用卡"){
+            $('#xinyong').css('display','block')
+            $('#chuxu').css('display','none')
+            
+        }
+        else{
+            $('#xinyong').css('display','none')
+            $('#chuxu').css('display','block')
+        }
+    })   
+    $('.footer-D').click(function(){
+        if($('.clip-on span').css('color')=='rgb(255, 255, 255)'){
+            kh = $('#chuxu .swiper-slide-active .card .card-bottom .card-number').text()
+            xf = $('.figure-R span').text()
+            c= $('#chuxu .swiper-slide-active').html()
+            d = $('.card-s').append(c)
+            ye = $('#chuxu .swiper-slide-active .card .card-bottom .card-number')[0].dataset.value
+            xf = parseInt(xf)
+            ye = parseInt(ye)
+        }
+        else{
+            kh = $('#xinyong .swiper-slide-active .card .card-bottom .card-number').text()
+            xf = $('.figure-R span').text()
+            c= $('#xinyong .swiper-slide-active').html()
+            d = $('.card-s').append(c)
+            ye = $('#xinyong .swiper-slide-active .card .card-bottom .card-number')[0].dataset.value
+            xf = parseInt(xf)
+            ye = parseInt(ye)
+        }
+
+        if(ye>=xf){
+            $('.Pay').css('display','none');
+            $('#enterP').css('display','block')
+            $('#ps1').focus()
+        }
+        else{
+            $('.footer-D').css('display','none');
+            $('.footer-B').css('display','block')
+        }
+    })
+    $('.icon-zuojiantou').click(function(){
+        window.location.reload()
+    }) 
+
+    $(".password-1 li input").on('input propertychange',function(e){
+        let target=$(e.target)
+        let num=parseInt(target.attr('id').substring(2))+1
+        for(let i=num;i<7;i++){
+            $(`#ps${i}`).val('')
+        }
+        $(`#ps${num}`).focus()
+        if(num-1==6){
+            let str=''
+            for(let i=1;i<7;i++){
+                str+=$(`#ps${i}`).val()
+            }
+            kahao = $('.card-s:last .card .card-bottom .card-number').text()
+            xf = $('.figure-R span').text()
+            yue = $('.card-s .card .card-bottom .card-number')[0].dataset.value
+            xf = parseInt(xf)
+            yue = parseInt(yue)
+            dd = {{ dd.id }}
+            $.ajax({
+                url:`/bank_${dd}/`,
+                type:'post',
+                data:{
+                    pas:str,
+                    xf:xf,
+                    yue:yue,
+                    kahao:kahao,
+                },
+                success:function(e){
+                    if(e=='ok'){
+                        $('#enterP').css('display','none')
+                        $('.card-c').css('display','block')
+                        $('.nopas').css('display','none')
+                    }
+                    else if(e=='密码错误'){
+                        $('.nopas').css('display','block')
+                    }
+                    else if(e=='网络连接中断'){
+                        $('#enterP').css('display','none')
+                        $('.card-D').css('display','block')
+                    }
+                }
+            })
+        }
+    })
+    
+</script>
+</html>

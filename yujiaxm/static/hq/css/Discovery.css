@@ -1,0 +1,125 @@
+*{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	box-sizing: border-box;
+	list-style: none;
+	cursor: pointer;
+}
+body{
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding-top: 0.4rem;
+	background: #F9F9F9;
+}
+header{
+	width: 100%;
+	height: 0.4rem;
+	float: left;
+	position: relative;
+}
+h1{
+  font-size:0.56rem;
+  font-family: "PingFang SC";
+  color: rgba(39, 39, 39, 0.8);
+  line-height: 2.4;
+  margin-left: 0.41rem;
+}
+.search{
+	width: 100%;
+	height: 100%;
+	padding:0 0.2rem;
+	position: relative;
+}
+.search input{
+	width: 100%;
+	height: 0.6rem;
+	border-radius: 0.15rem;
+	outline: none;
+	padding-left: 0.6rem;
+	box-sizing: border-box;
+	border: 1px solid #fff;
+}
+.search i{
+    position:absolute;
+    left: 0.4rem;
+    bottom: 0.15rem;
+    color:#19CDF4;
+    display:block;
+}
+.search i:last-child{
+    color:#000;
+    right:0.4rem;
+    left:auto;
+    display:none;
+}
+.search .icon-search-1-copy{
+	position: absolute;
+	top: 0.8rem;
+	left: 0.9rem;
+	color: #D0D0D1;
+}
+.num{
+	width: 2.03rem;
+	height: 0.72rem;
+	position: relative;
+	margin-top: 0.5rem;
+}
+.num p{
+	font-size:0.32rem;
+  font-family: "Microsoft YaHei";
+  color: rgb(59, 69, 79);
+  font-weight: bold;
+  line-height: 0.75;
+  position: absolute;
+  left: 0.24rem;
+  top: 0.21rem;
+}
+.num h5{
+	font-size: 0.32rem;
+	font-family: "Microsoft YaHei";
+	font-weight: bold;
+  line-height: 0.75;
+  color: #54D4EB;
+  position: absolute;
+  left: 0.93rem;
+  top: 0.21rem;
+}
+.num i{
+	font-size: 0.19rem;
+	position: absolute;
+	color: #19CDF4;
+	right: 0;
+	top: 0.31rem;
+}
+.yuan{
+	width: 0.04rem;
+	height: 0.04rem;
+	background: #3FC7EE;
+	position: absolute;
+	right:0.1rem;
+	top: 0.28rem;
+}
+.img img{
+	margin-top: 1.45rem;
+	width: 100%;
+	height: 8.12rem;
+}
+.img p{
+
+  font-size:0.24rem;
+  font-family: "PingFang SC";
+  color: rgba(0, 0, 0, 0.4);
+  line-height: 1.333;
+  text-align: center;
+  position: absolute;
+  left: 2.69rem;
+  bottom: 0.05rem;
+
+}
+.img{
+	width: 100%;
+	height: 8.12rem;
+	position: relative;
+}

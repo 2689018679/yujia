@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>歌曲</title>
+	{% load static %}
+	<script src="{% static 'yoga/js/jQuery.js' %}"></script>
+	<script src="{% static 'yoga/js/rem.js' %}"></script>
+	<link rel="stylesheet" href="https://at.alicdn.com/t/font_992846_h0x2u0stodm.css">
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+body{
+	background: #f9f9f9;
+}
+.icon-houtui{
+	font-size: 0.6rem;
+	margin-left: 0.23rem;
+	color: #19cdf4;
+}
+.gd{
+	font-size: 0.58rem;
+	color: #19cdf4;
+}
+.cate{
+	width: 7.04rem;
+	height: auto;
+	margin-left: 0.23rem;
+	margin-top: 0.4rem;
+	display: flex;
+	justify-content: space-around;
+}
+.cate img{
+	width: 3.37rem;
+	height: 2.73rem;
+}
+.cate span{
+	font-size: 0.5rem;
+	line-height: 2.73rem;
+	color: #686868;
+}
+.list_ge{
+	width: 7.3rem;
+	height: auto;
+	margin-left: 1.23rem;
+}
+.list_ge ul{
+	width: 100%;
+	height: 100%;
+}
+</style>
+<body>
+	<a href="/music">
+		<i class="iconfont icon-houtui"></i>
+	</a>
+	<span class="gd">歌单</span>
+	<div class="cate">
+		{% for item in songs %}
+		<img src="/static/yoga/{{ item.img }}" alt="">
+		<span>{{ item.name }}</span>
+		{% endfor %}
+	</div>
+	<div class="list_ge">
+		<ul>
+			{% for item in gq %}
+			<span style="font-size:0.35rem">歌曲名称：{{ item.name }}</span>
+			<audio src="/static/songs/{{ item.name }}.mp3" onclick="v1" controls="controls" style="width:100%;display:block;margin-top:0.2rem;"></audio>
+			{% endfor %}
+		</ul>
+	</div>
+</body>
+</html>
+<script>
+	var audios = document.getElementsByTagName("audio");
+// 暂停函数
+function pauseAll() {
+    var self = this;
+    [].forEach.call(audios, function (i) {
+        // 将audios中其他的audio全部暂停
+        i !== self && i.pause();
+    })
+}
+// 给play事件绑定暂停函数
+[].forEach.call(audios, function (i) {
+    i.addEventListener("play", pauseAll.bind(i));
+
+})
+</script>

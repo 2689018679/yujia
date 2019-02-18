@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	{% load static %}
+	<script src="{% static 'hq/js/rem.js' %}"></script>
+	<script src="{% static 'hq/js/jQuery.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'hq/css/search.css' %}">
+	<link rel="stylesheet" href="https://at.alicdn.com/t/font_990002_1mlbjgqrrvt.css">
+	<title>Document</title>
+</head>
+<body>
+	<header>
+	<i class="iconfont icon-houtui" style="color: #19CDF4;font-size: 20px;float: left;margin-left: 0.41rem;"><div class="border"></div></i>
+	</header>
+	<h1>搜索</h1>
+	<div class="search">
+		<i class="iconfont icon-sousuo1" id="search"></i>
+		<input type="text" placeholder="瑜伽" id="searcht">
+		<i class="iconfont icon-guanbi" id="clear"></i>
+	</div>
+	<div class="number">
+	<h1>推荐</h1>
+	<h2 style="float: left;">热搜</h2>
+	</div>
+	{% for item in obj %}
+	<a href="/exploration_{{ item.con }}"><div class="radius">{{ item.con }}</div></a>
+	{% endfor %}
+	<div class="number_last">
+	<h1>推荐</h1>
+	<h2 style="float: left;">分类</h2>
+	</div>
+
+	<div class="num"><span>禅&nbsp瑜伽馆</span></div>
+	<div class="num" ><span style="margin-top: -20px;">执古&nbsp瑜伽馆</span></div>
+	<div class="num"><span style="margin-top: -20px;">瑜&nbsp瑜伽馆</span></div>
+</body>
+<script>
+	$('#search').click(function(){
+		if($('#searcht').val()!=''){
+			window.location.href = `/exploration_${$('#searcht').val()}/`;
+		}
+	})
+	$('#searcht').on('input propertychange',function(){
+		if($('#searcht').val()!=''){
+			$('#clear').css('display','block');
+		}
+	})
+	$('#clear').click(function(){
+		$('#searcht').val('')
+		$('#clear').css('display','none')
+	})
+
+</script>
+</html>

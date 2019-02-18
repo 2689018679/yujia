@@ -1,0 +1,308 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+body
+{
+    background: #f9f9f9;
+
+}
+header
+{
+    margin-top: .4rem;
+    position: relative;
+    height: .8rem;
+
+}
+header .back
+{
+    width: .44rem;
+    height: .4rem;
+    position: absolute;
+    top:.25rem;
+    left: .25rem;
+
+}
+header .back  img
+{
+    width: 100%;
+    height: 100%;    
+    float: left;
+
+}
+.active
+{
+    width: 100%;
+    height: .9rem;
+    display: block;
+    padding: 0 0.25rem;
+    box-sizing: border-box;
+    font-size: .58rem;
+    line-height: .9rem;
+    position: relative;
+}
+.active img{
+    width: .46rem;
+    height: .46rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    right: .27rem;
+}
+.choose
+{
+    width: 7.04rem;
+    height: .9rem;
+    margin: .28rem .17rem;
+    background: #fff;
+    padding: .08rem  0;
+    font-size: .24rem;
+    color: #7f7f7f;
+    line-height: .9rem;
+} 
+.hot
+{
+    color: #87e1f1;
+}
+.choose .yoga:first-child
+{
+    border-right: .02rem solid #b7e2eb;
+}
+.choose .yoga
+{
+    width: 49%;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+   
+}
+/* 遇见瑜伽 */
+main
+{
+    min-height: 6.9rem;
+    margin: 0 .24rem 0.72rem;
+    /* background: #fff; */
+    /* display: none; */
+}
+main .person{
+    padding: .14rem .2rem;
+    height: 1.1rem;
+    padding: .16rem .4rem;
+    box-sizing: border-box;
+    position: relative;
+}
+main .person .pict
+{   
+  
+    width: .8rem;
+    height: .8rem;
+    background: #fff;
+    border-radius: 50%;
+    /* box-shadow: .1rem .1rem .5rem #eee; */
+    box-shadow: .01rem .01rem 0.5rem #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: inline-block; */
+    
+}
+main .person .pict img{
+    width: .75rem;
+    height: .75rem;
+    margin:  auto 0;
+    border-radius: 50%;
+    
+}
+main .person .info
+{
+     display: inline-block;
+     position: absolute;
+     top:0;
+     bottom: 0;
+     margin-top: auto;
+     margin-bottom: auto;
+     left: 1.4rem;
+     padding: .14rem 0 ;
+}
+main .person .name
+{
+    font-size: .24rem;
+    color:#4c4c4c;
+    height: 50%;
+    line-height: .48rem;
+    
+}
+main .person .time
+{
+    font-size: .16rem;
+    color:#4c4c4c;
+    height: 50%;
+    line-height: .5rem;
+}
+
+
+main .person .star
+{
+    min-width: .22rem;
+    max-width: 1.2rem;
+    height: .22rem;
+    position: absolute;
+    right: .30rem;
+    top:0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+}
+main .person .star .iconfont{
+    font-size: .2rem;
+    color: #87e1f1;
+    margin: 0  .02rem;
+}
+main .dynamic_bg
+{
+    width: 6.5rem;
+    height: 2.6rem;
+    margin: 0 .22rem;
+}
+main .dynamic_bg img{
+    width: 100%;
+    height: 100%;
+}
+main .text
+{
+    font-size: .26rem;
+    padding: 0 .27rem;
+ 
+}
+main .text p
+{
+    font-size: .24  rem;
+    line-height: .38rem;
+}
+main .botto
+{
+    height: .34rem;
+    position: absolute;
+    right: .3rem;
+    margin: 0 .22rem;
+}
+main .botto .iconfont
+{
+    color: #87e1f1;
+}
+main .botto span{
+    color: #4c4c4c;
+}
+
+
+/* 饮食搭配 */
+
+main .person .content
+{
+    /* display: inline-block; */
+    position: absolute;
+    top:6.4rem;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    left: 1.4rem; 
+    right: .24rem;
+    padding:  0  .14rem ;
+    box-sizing: border-box;
+    width: 5.65rem;
+    height: 7.16rem;
+    background: #fff;
+    float: right;
+    border-radius: 0.1rem;
+}
+main .stars
+{
+    font-size: .2rem;
+    min-width: .22rem;
+    max-width: 1.2rem;
+    /* height: .22rem; */
+    height: 50%;
+}
+main .stars .iconfont{
+    font-size: .21rem;
+    color: #87e1f1;
+    margin: 0  .02rem;
+    line-height: .4rem;
+}
+main .content .level
+{
+    display: inline-block;
+    background: #fff;
+    width: 1.8rem;
+}
+main .infos
+{
+    width: 5.36rem;
+    /* height: 1.3rem; */
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+main .content .infos .info_date
+{
+    display: inline;
+    float: right;
+    text-align: right;
+    min-width: 1.8rem;
+    font-size: .2rem;
+    line-height: .48rem;
+}
+main .content .infos .info_date .date .iconfont
+{
+    font-size: .15rem;
+    color: #87e1f1;
+}
+main .content h5{
+    font-size: .24rem;
+    line-height: .66rem;
+}
+main .content .share_img 
+{
+    height: 2.4rem;
+}
+main .content .share_img ul
+{
+    width: 5.40rem;
+    height: 1.66rem;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+main .content .share_img img{
+    width: 1.68rem;
+    height: 1.68rem;
+}
+main .content  .praise
+{
+    margin-top: .2rem; 
+    float:right;
+    display: flex;
+} 
+main .content .praise .iconfont
+{
+    font-size: .26rem;
+    color: #87e1f1;
+    line-height: .3rem;
+}
+main .content .message 
+{
+    color: #4c4c4c;
+    font-size: .22rem;
+    display: block;
+    line-height: .4rem;
+}
+main .content .message  span
+{
+    color: #87e1f1;
+}

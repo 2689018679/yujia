@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	{% load static %}
+	<script src="{% static 'hq/js/rem.js' %}"></script>
+	<script src="{% static 'hq/js/jQuery.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'hq/css/exploration.css' %}">
+	<link rel="stylesheet" href="https://at.alicdn.com/t/font_995864_p8hxn7bm38.css">
+	<link rel="stylesheet" href="https://at.alicdn.com/t/font_990002_1mlbjgqrrvt.css">
+	<title>Document</title>
+</head>
+<body>
+<input type="hidden" id="len" value="{{ num }}">
+	<h1>发现探索</h1>
+	<div class="search">
+		<i class="iconfont icon-sousuo1" id="search"></i>
+		<input type="text" placeholder="瑜伽" id="searcht">
+		<i class="iconfont icon-guanbi" id="clear"></i>
+	</div>
+	{% if lbt %}
+	<div class="num">
+		<p>搜索</p>
+		<h5>结果</h5>
+		<div class="yuan"></div>
+		<i class="iconfont icon-xiajiantou"></i>
+	</div>
+
+	<div class="aaa">
+		<div class="lunbo" style="position: relative;">
+			{% for item in lbt %}
+			<img src="/static/hq/img/{{ item.img }}" alt="" style="position: absolute;left:0;top: 0" class="img">
+			<div class="img_bottom">
+				<div class="picture_left">
+				<img src="{% static 'hq/img/点赞@3x.png' %}" alt="">
+				<div class="box">
+					{{ item.username }}
+				</div>
+				</div>
+				<div class="picture_right">
+					<i class="iconfont icon-duihuaqipao">6780</i>
+					<span class="iconfont icon-xin">6780</span>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="first circle"></div>
+		<div class="first circle" style="background: #C1EAF6"></div>
+		<div class="first circle" style="background: #C1EAF6"></div>
+	</div>
+	{% endif %}
+
+	<p>全部搜索结果</p>
+	{% load poll_extras %}
+
+
+	{% for item in res %}
+	<a href="/changguanxq_{{item.id}}">
+	<div class="qwer" onload="cxjl({{item.id}})">
+		<h3>{{ item.username }}</h3>
+		<img src="{% static 'hq/img/图层511拷贝@3x.png' %}" alt="">
+		<h4>{{ item.username }}</h4>
+		<span>地址:{{ item.place }}</span>
+		<div class="picture">
+			{{ value | my_star:item.assess |safe}}
+		</div>
+		<p class="san">{{ forloop.counter | jl:jl_list}}km</p>
+	</div>
+	</a>
+	{% endfor %}
+</body>
+</html>
+<script>
+let a=document.querySelectorAll('.img');
+let b=document.querySelectorAll('.circle')
+let box=document.querySelector('.aaa');
+
+
+let n=0;
+let index=function(n){
+	for(let i=0;i<a.length;i++){
+		a[i].style.display='none';
+		b[i].style.background='#3FC7EE';
+	}
+	a[n].style.display='block';
+	b[n].style.background='red'
+}
+index(n)
+let id=setInterval(auto,1000);
+function auto(){
+	n++;
+	n=n==3?0:n
+	index(n)
+}   
+box.onmouseenter=()=>clearInterval(id)
+box.onmouseleave=()=>id=setInterval(auto,1000); 
+
+for(let j=0;j<b.length;j++){
+	b[j].onmouseenter=function(){
+		n=j;
+		index(n)
+	}
+}
+</script>
+
+<script>
+	if($('#len').val()<3){
+		$('#num').css('display','none');
+		$('#aaa').css('display','none');
+	}
+	$('#search').click(function(){
+		if($('#searcht').val()!=''){
+			window.location.href = `/exploration_${$('#searcht').val()}/`;
+		}
+	})
+	$('#searcht').on('input propertychange',function(){
+		if($('#searcht').val()!=''){
+			$('#clear').css('display','block');
+		}
+	})
+	$('#clear').click(function(){
+		$('#searcht').val('')
+		$('#clear').css('display','none')
+	})
+</script>

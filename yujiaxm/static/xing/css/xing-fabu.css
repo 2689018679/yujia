@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+header{
+    height: .51rem;
+}
+#caozuo{
+    height: 0.71rem;
+    overflow: hidden;
+    position: relative;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+}
+#cuo{
+    width: 0.22rem;
+    height: 0.22rem;
+    margin-left: 0.25rem;
+    margin-top: 0.22rem;
+}
+#dui{
+    width: 0.22rem;
+    height: 0.22rem;
+    margin-right: 0.25rem;
+    margin-top: 0.22rem;
+}
+#fabuzi{
+    font-size: 0.32rem;
+    font-weight: bold;
+    line-height: 0.71rem;
+}
+#shuruqu{
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding:0.23rem 0.25rem;
+}
+#shuruqu::placeholder{
+    font-size: 0.24rem;
+    color: #a0a3a8;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'xing/css/xing-yyddxq.css'%}">
+    <script src="{% static 'xing/js/jQuery.js'%}"></script>
+    <script src="{%static 'xing/js/rem(1).js'%}"></script>
+    <title>预约详情</title>
+</head>
+<body>
+    <header></header>
+    <div id="backar">
+        <a href="/ddxqb/"><img src="{% static 'xing/img/xing-back.png'%}" alt="" id="back"></a>
+    </div>
+    <div id="ddxq">预约详情</div>
+    <div id="l_erwexq">
+        <div id="xxxx">
+            <img src="{%static 'xing/img/xqtu.png'%}" alt="" id="xqtu">
+
+            <div id="you_xqing">
+                <div id="you_xqing1">有限时间：<span id="shijian">{{ i.riqi }}</span></div>
+                <div id="you_xqing1" style="letter-spacing: 0.22rem;">下午：<span id="shijian">{{ i.shijianduan }}</span><div id="didian">{{ i.didian }}</div></div>
+                <div id="you_xqing2">地址：<span id="">{{ i.name.place }}</span></div>
+            </div>
+        </div>
+        <img src="{%static 'xing/img/erwema.png'%}" alt="" id="erwematu">
+    </div>
+</body>
+</html>
