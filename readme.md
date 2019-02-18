@@ -14,7 +14,7 @@
 
 下载：
 
-![img](file:///C:/Users/qwer/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg)
+![img](https://github.com/2689018679/yujia/blob/master/images/1.png)
 
 安装：（请勾选“Add Python 3.7 to PATH”选项，之后一路确定即可）
 
